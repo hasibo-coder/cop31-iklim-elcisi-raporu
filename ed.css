@@ -116,7 +116,7 @@ body.ed{margin:0;background:#fff;color:var(--ink);font:400 17px/1.6 var(--sans);
  .ed .cover .w{padding-top:190px}
  .ed .art .pn{grid-template-columns:1fr}.ed .art .pn .snr{text-align:left}
 }
-@media (prefers-reduced-motion:reduce){.ed .cover .vbg video{display:none}.ed .tm img{transition:none}html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){.ed .tm img{transition:none}html{scroll-behavior:auto}}
 .ed .art .oturumlar li{display:grid;grid-template-columns:auto 1fr;gap:2px 14px;align-items:baseline}
 .ed .art .oturumlar .kod{margin:0}.ed .art .otr{grid-column:2;font:400 15px var(--sans);color:var(--soft)}
 
@@ -228,3 +228,8 @@ body.ed{margin:0;background:#fff;color:var(--ink);font:400 17px/1.6 var(--sans);
 .ed .cover .btn{background:#fff;color:var(--navy)}.ed .cover .btn:hover{background:#E7EEF2}
 
 .ed .cover .indir{margin-top:14px}.ed .cover .indir a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:4px}
+
+.ed .cover .vplay{position:absolute;right:20px;bottom:20px;z-index:3;font:600 14px/1 "Public Sans",system-ui,sans-serif;color:#fff;background:rgba(11,46,75,.82);border:1px solid rgba(255,255,255,.55);border-radius:999px;padding:11px 18px;cursor:pointer}
+.ed .cover .vplay:hover{background:rgba(11,46,75,.95)}
+.ed .cover .vplay:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.ed .cover .vplay[hidden]{display:none}
