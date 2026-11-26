@@ -234,7 +234,3 @@ body.ed{margin:0;background:#fff;color:var(--ink);font:400 17px/1.6 var(--sans);
 .ed .cover .vplay:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .ed .cover .vplay[hidden]{display:none}
 
-/* Ana sayfa arka plan videosu: kaynak klip çok durağan olduğu için yavaş kamera süzülmesi */
-.ed .cover:not(.t):not(.s) .vbg video{transform-origin:60% 55%;animation:vdrift 22s ease-in-out infinite alternate;will-change:transform}
-@keyframes vdrift{from{transform:scale(1.04) translate3d(-1.2%,.6%,0)}to{transform:scale(1.2) translate3d(1.8%,-1.2%,0)}}
-@media (prefers-reduced-motion:reduce){.ed .cover .vbg video{animation:none}}
