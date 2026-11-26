@@ -226,3 +226,5 @@ body.ed{margin:0;background:#fff;color:var(--ink);font:400 17px/1.6 var(--sans);
  .ed .bar ul{gap:4px 16px;font-size:14px}
 }
 .ed .cover .btn{background:#fff;color:var(--navy)}.ed .cover .btn:hover{background:#E7EEF2}
+
+.ed .cover .indir{margin-top:14px}.ed .cover .indir a{color:#fff;font-weight:600;text-decoration:underline;text-underline-offset:4px}
