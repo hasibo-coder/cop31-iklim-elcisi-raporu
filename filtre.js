@@ -5,7 +5,7 @@
     var tablo=document.getElementById(k.getAttribute('data-hedef')); if(!tablo) return;
     var satirlar=tablo.querySelectorAll('tbody tr');
     var durum=k.getAttribute('data-mod')==='durum';
-    var secenek=durum?[['hepsi','Tümü'],['dogrulandi','Doğrulandı'],['duzeltildi','Düzeltildi'],['kaynakyok','Kaynak yok'],['kontrol','Kontrol edilmedi']]
+    var secenek=durum?[['hepsi','Tümü'],['dogrulandi','Doğrulandı'],['duzeltildi','Düzeltildi'],['beyan','Beyan'],['kontrol','Kontrol edilmedi']]
       :[['hepsi','Tümü'],['t1','Tema 1'],['t2','Tema 2'],['t3','Tema 3'],['t4','Tema 4'],['t5','Tema 5'],['t6','Tema 6'],['t7','Tema 7']];
     var grup=document.createElement('div'); grup.className='chips'; grup.setAttribute('role','group'); grup.setAttribute('aria-label',k.getAttribute('data-etiket'));
     var sayac=document.createElement('p'); sayac.className='sayac'; sayac.setAttribute('role','status'); sayac.setAttribute('aria-live','polite');
