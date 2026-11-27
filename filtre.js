@@ -1,15 +1,16 @@
 /* Süzgeç: .filtre[data-hedef] kutusuna düğmeler ekler; tablo satırlarındaki data-f değerine göre gösterir/gizler. JS yoksa tüm satırlar görünür. */
 (function(){
+  var EN=(document.documentElement.lang||'').indexOf('en')===0;
   var kutular=document.querySelectorAll('.filtre[data-hedef]');
   Array.prototype.forEach.call(kutular,function(k){
     var tablo=document.getElementById(k.getAttribute('data-hedef')); if(!tablo) return;
     var satirlar=tablo.querySelectorAll('tbody tr');
     var durum=k.getAttribute('data-mod')==='durum';
-    var secenek=durum?[['hepsi','Tümü'],['dogrulandi','Doğrulandı'],['duzeltildi','Düzeltildi'],['beyan','Beyan'],['kontrol','Kontrol edilmedi']]
-      :[['hepsi','Tümü'],['t1','Tema 1'],['t2','Tema 2'],['t3','Tema 3'],['t4','Tema 4'],['t5','Tema 5'],['t6','Tema 6'],['t7','Tema 7']];
+    var secenek=durum?(EN?[['hepsi','All'],['dogrulandi','Verified'],['duzeltildi','Corrected'],['beyan','Speaker-reported'],['kontrol','Not checked']]:[['hepsi','Tümü'],['dogrulandi','Doğrulandı'],['duzeltildi','Düzeltildi'],['beyan','Beyan'],['kontrol','Kontrol edilmedi']])
+      :(EN?[['hepsi','All'],['t1','Theme 1'],['t2','Theme 2'],['t3','Theme 3'],['t4','Theme 4'],['t5','Theme 5'],['t6','Theme 6'],['t7','Theme 7']]:[['hepsi','Tümü'],['t1','Tema 1'],['t2','Tema 2'],['t3','Tema 3'],['t4','Tema 4'],['t5','Tema 5'],['t6','Tema 6'],['t7','Tema 7']]);
     var grup=document.createElement('div'); grup.className='chips'; grup.setAttribute('role','group'); grup.setAttribute('aria-label',k.getAttribute('data-etiket'));
     var sayac=document.createElement('p'); sayac.className='sayac'; sayac.setAttribute('role','status'); sayac.setAttribute('aria-live','polite');
-    var birim=k.getAttribute('data-sayac')||'kayıt';
+    var birim=k.getAttribute('data-sayac')||(EN?'entries':'kayıt');
     function uygula(anahtar){
       var g=0;
       Array.prototype.forEach.call(satirlar,function(s){
@@ -17,7 +18,7 @@
         var goster=anahtar==='hepsi'||f.indexOf(anahtar)>-1;
         s.hidden=!goster; if(goster) g++;
       });
-      sayac.textContent=satirlar.length+' '+birim+' içinden '+g+' tanesi gösteriliyor.';
+      sayac.textContent=EN?('Showing '+g+' of '+satirlar.length+' '+birim+'.'):(satirlar.length+' '+birim+' içinden '+g+' tanesi gösteriliyor.');
       Array.prototype.forEach.call(grup.children,function(b){b.setAttribute('aria-pressed',b.getAttribute('data-k')===anahtar?'true':'false');});
     }
     secenek.forEach(function(o){

@@ -234,3 +234,5 @@ body.ed{margin:0;background:#fff;color:var(--ink);font:400 17px/1.6 var(--sans);
 .ed .cover .vplay:focus-visible{outline:3px solid #fff;outline-offset:3px}
 .ed .cover .vplay[hidden]{display:none}
 
+.bar li.lang a{border:1px solid currentColor;border-radius:999px;padding:1px 10px;font-weight:600;font-size:13px;letter-spacing:.04em;opacity:1}
+.bar li.lang a:hover{text-decoration:none;background:rgba(255,255,255,.14)}

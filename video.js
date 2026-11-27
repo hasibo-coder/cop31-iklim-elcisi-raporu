@@ -1,4 +1,5 @@
 (function(){try{
+  var EN=(document.documentElement.lang||'').indexOf('en')===0;
   var vs=document.querySelectorAll('.vbg video');
   var reduce=false;try{reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
   function go(v){try{v.muted=true;v.defaultMuted=true;v.setAttribute('playsinline','');var p=v.play();if(p&&p.catch)p.catch(function(){});}catch(e){}}
@@ -6,7 +7,7 @@
     try{fetch(src).then(function(r){return r.blob();}).then(function(b){v.src=URL.createObjectURL(b);if(!reduce||v._user)go(v);}).catch(function(){});}catch(e){} }
   function btn(v){
     var c=v.closest('.cover')||v.parentNode; if(c.querySelector('.vplay'))return c.querySelector('.vplay');
-    var b=document.createElement('button');b.type='button';b.className='vplay';b.textContent='Arka plan videosunu oynat';
+    var b=document.createElement('button');b.type='button';b.className='vplay';b.textContent=EN?'Play background video':'Arka plan videosunu oynat';
     b.addEventListener('click',function(){v._user=true;v.style.display='block';go(v);b.hidden=true;});
     c.appendChild(b);return b;}
   vs.forEach(function(v){ var a=v.querySelector('source').getAttribute('src'),b=v.getAttribute('data-seq'),cur=0;
